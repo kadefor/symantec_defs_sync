@@ -29,8 +29,9 @@ jobs:
       - name: wget jdb file
         run: |
           rm -rf *.jdb
-          wget `curl -s 'https://definitions.symantec.com/defs/sonar/index.html' | grep '.jdb' | tail -1 | awk '{print $3}' | awk -F'"' '{print $2}'`
-          wget `curl -s 'https://definitions.symantec.com/defs/ips/index.html' | grep '.jdb' | tail -1 | awk '{print $3}' | awk -F'"' '{print $2}'`
+          wget `curl -s 'https://definitions.symantec.com/defs/sonar/index.html' | grep '.jdb' | tail -3 | awk '{print $3}' | awk -F'"' '{print $2}'`
+          wget `curl -s 'https://definitions.symantec.com/defs/ips/index.html' | grep '.jdb' | tail -3 | awk '{print $3}' | awk -F'"' '{print $2}'`
+          wget `curl -s 'https://definitions.symantec.com/defs/download/symantec_enterprise/jdb/core3sds/index.html' | grep '.jdb' | tail -3 | awk '{print $3}' | awk -F'"' '{print $2}'`
         
       - name: Upload jdb to release
         uses: svenstaro/upload-release-action@v2
