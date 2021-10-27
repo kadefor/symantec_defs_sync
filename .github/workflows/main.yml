@@ -35,7 +35,7 @@ jobs:
           
       - name: Delete release
         run: |
-          gh release delete ${{ github.ref }} -y
+          gh release delete main -y
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           
